@@ -1,9 +1,16 @@
 const express = require('express');
 const dotenv = require('dotenv');
 
+// Route files
+const destinations = require('./routes/destinations');
+
+// Loading environment variables
 dotenv.config({ path: './config/config.env' });
 
 const app = express();
+
+// Mount routers
+app.use('/api/v1/destinations', destinations);
 
 const PORT = process.env.PORT || 5000;
 
